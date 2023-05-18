@@ -70,9 +70,9 @@ apt-get -y install python python-dev python-pip python-m2crypto curl wget unzip 
 fi
 
 #安装chacha20的依赖库
-wget -N --no-check-certificate https://raw.githubusercontent.com/lcklo/ssr_install/master/libsodium-1.0.12.tar.gz
-tar zfvx libsodium-1.0.12.tar.gz
-cd libsodium-1.0.12
+wget -N --no-check-certificate https://raw.githubusercontent.com/lcklo/ssr_install/master/libsodium.tar.gz
+tar zfx libsodium.tar.gz 
+cd libsodium
 ./configure
 make && make install
 echo "include ld.so.conf.d/*.conf" > /etc/ld.so.conf
@@ -81,7 +81,7 @@ echo "/usr/lib64" >> /etc/ld.so.conf
 echo "/usr/local/lib" >> /etc/ld.so.conf
 ldconfig
 cd /root/
-rm -rf libsodium-1.0.12.tar.gz libsodium-1.0.12
+rm -rf libsodium.tar.gz libsodium
 
 #git安装ssr
 git clone https://github.com/lcklo/shadowsocksr-1.git ${ssrdir}
