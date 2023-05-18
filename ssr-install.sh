@@ -71,7 +71,8 @@ fi
 
 #安装chacha20的依赖库
 wget -N --no-check-certificate https://raw.githubusercontent.com/lcklo/ssr_install/master/libsodium.tar.gz
-tar zfx libsodium.tar.gz 
+mkdir libsodium
+tar zfx libsodium.tar.gz --strip-components 1 -C libsodium
 cd libsodium
 ./configure
 make && make install
@@ -80,7 +81,7 @@ echo "/lib" >> /etc/ld.so.conf
 echo "/usr/lib64" >> /etc/ld.so.conf
 echo "/usr/local/lib" >> /etc/ld.so.conf
 ldconfig
-cd /root/
+cd ../
 rm -rf libsodium.tar.gz libsodium
 
 #git安装ssr
